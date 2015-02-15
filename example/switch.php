@@ -29,9 +29,10 @@
 		else
 			$rData = $exampleServices->switchTo($uuid, false);
 
+		$rDataPrinted = print_r($rData, true);
+
 		// Display result
 		echo "<h4>Switch $switch for $uuid</h4>";
-		$rDataPrinted = print_r($rData);
 		echo "<pre>$rDataPrinted</pre>";
 
 		// Logout and free resources

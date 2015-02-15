@@ -2,7 +2,7 @@
 
 <dl>
 	<dt>Based on :</dt>
-	<dd><a href="https://my.zipato.com/zipato-web/v2-doc/doc">Zipato Web API v2</a></dd>
+	<dd><a href="https://my.zipato.com/zipato-web/api/">Zipato Web API v2</a></dd>
 
 	<dt>Author : </dt>
 	<dd><a href="https://github.com/Nikya">Nikya</a></dd>

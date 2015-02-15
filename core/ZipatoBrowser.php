@@ -3,7 +3,7 @@
 /**
 * Zipato Browser for Zipato web API V2.
 *
-* @see https://my.zipato.com/zipato-web/v2-doc/doc
+* @see https://my.zipato.com/zipato-web/api/
 * @author Nikya : https://github.com/Nikya
 *
 */
@@ -17,6 +17,9 @@ class ZipatoBrowser {
 
 	/** Current URL */
 	private $currentUrl = null;
+
+	/** The session Id obtain during login */
+	private $sessionId = null;
 
 	/**
 	* Browser constructor
@@ -56,7 +59,6 @@ class ZipatoBrowser {
 	public function login($username, $password) {
 		// Init cURL
 		$this->ch = curl_init();
-		curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
 		$this->assertNotFalse($this->ch);
 
 		// Step init : to get the nonce and Session Id
@@ -68,8 +70,8 @@ class ZipatoBrowser {
 		// Build the login token
 		$token = sha1($nonce . $password);
 
-		// Set the session id (Is a cookie)
-		curl_setopt($this->ch, CURLOPT_COOKIE, 'JSESSIONID='.$jsessionid);
+		// Save the session ID
+		$this->sessionId = $jsessionid;
 
 		// Step login
 		$url = "/user/login?username=$username&token=$token";
@@ -124,6 +126,17 @@ class ZipatoBrowser {
 	}
 
 	/**
+	* Reset the cURL
+	*/
+	public function reset() {
+		curl_reset($this->ch);
+		curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
+
+		if (!is_null($this->sessionId))
+			curl_setopt($this->ch, CURLOPT_COOKIE, 'JSESSIONID='.$this->sessionId);
+	}
+
+	/**
 	* Make an HTTP GET to the URL, check the result and return the response.
 	*
 	* @param $url The URL to call
@@ -131,12 +144,11 @@ class ZipatoBrowser {
 	* @return Convert the raw json response into json object
 	*/
 	public function get($url, $uuid=null, $params=null) {
-		$this->curl_reset();
+		$this->reset();
 		$this->buildUrl($url, $uuid, $params);
 
 		curl_setopt($this->ch, CURLOPT_URL, $this->currentUrl);
 		curl_setopt($this->ch, CURLOPT_HTTPGET, true);
-		curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
 
 		$curlExec = curl_exec($this->ch);
 
@@ -156,7 +168,7 @@ class ZipatoBrowser {
 	* @return Convert the raw json response into json object
 	*/
 	public function put($url, $uuid=null, $bodyData=null) {
-		$this->curl_reset();
+		$this->reset();
 
 		$this->buildUrl($url, $uuid);
 		$jsonData = json_encode($bodyData);
@@ -164,26 +176,21 @@ class ZipatoBrowser {
 		curl_setopt($this->ch, CURLOPT_URL, $this->currentUrl);
 		curl_setopt($this->ch, CURLOPT_CUSTOMREQUEST, "PUT");
 		curl_setopt($this->ch, CURLOPT_POSTFIELDS, $jsonData);
-		curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
-		var_dump($jsonData );exit;
 		curl_setopt($this->ch, CURLOPT_HTTPHEADER, array(
 			'Content-Type: application/json',
 			'Content-Length: ' . strlen($jsonData))
 		);
 
-		$curlExec = ''; //curl_exec($this->ch);
+		$curlExec =  curl_exec($this->ch);
 
 		$this->assertNotFalse($curlExec);
-		$jsonObj = json_decode($curlExec);
+
+		// No content return (It's normal)
+		if (empty($curlExec))
+			$jsonObj = json_encode(array('succes'=>true));
+		else
+			$jsonObj = json_decode($curlExec);
 
 		return $jsonObj;
-	}
-
-
-	/**
-	* Reset the cURL
-	*/
-	public function curl_reset() {
-		// TO impl
 	}
 }
