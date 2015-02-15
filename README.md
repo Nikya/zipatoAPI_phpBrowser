@@ -7,7 +7,7 @@ A PHP browser to use the *Zipato web API V2*.
 
 This is a basic structure to start more advanced personal implementations.
 
-See also [Zipato Web API](https://my.zipato.com/zipato-web/v2-doc/doc)
+See also [Zipato Web API](https://my.zipato.com/zipato-web/api/)
 
 # Installation
 Clone the repo [zipatoAPI_phpBrowser](https://github.com/Nikya/zipatoAPI_phpBrowser)
