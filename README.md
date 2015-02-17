@@ -1,4 +1,4 @@
-# [Zipato API PHP PHP Browser](https://github.com/Nikya/zipatoAPI_phpBrowser)
+# [Zipato API PHP Browser](https://github.com/Nikya/zipatoAPI_phpBrowser)
 
 Version 2.0_1.0
 
