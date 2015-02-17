@@ -15,7 +15,7 @@ Clone the repo [zipatoAPI_phpBrowser](https://github.com/Nikya/zipatoAPI_phpBrow
 # How to use
 1. Rename the file *config_RENAME_ME.ini* to *config.ini*
 1. Fill it with your *My Zipato* login
-1. Fill it with your *My Zipato* sha1(password). See [PHP manual Sha1](http://php.net/manual/en/function.sha1.php)
+1. Fill it with your *My Zipato* sha1(password). See [PHP manual Sha1](http://php.net/manual/function.sha1.php)
 1. Go to the *index* page with your browser and play with the examples 
 1. See how is works in :
        - `implementation/ExemplesServices.php`,
