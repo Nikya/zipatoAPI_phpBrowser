@@ -1,4 +1,4 @@
-# [Zipato API PHP PHP Browser](https://github.com/Nikya/zipatoAPI_phpBrowser)
+# [Zipato API PHP Browser](https://github.com/Nikya/zipatoAPI_phpBrowser)
 
 Version 2.0_1.0
 
@@ -15,11 +15,12 @@ Clone the repo [zipatoAPI_phpBrowser](https://github.com/Nikya/zipatoAPI_phpBrow
 # How to use
 1. Rename the file *config_RENAME_ME.ini* to *config.ini*
 1. Fill it with your *My Zipato* login
-1. Fill it with your *My Zipato* sha1(password). See [PHP manual Sha1](http://php.net/manual/en/function.sha1.php)
-1. Got to the *index* page with your browser and play with the examples and see how is works in :
-  * `implementation/ExemplesServices.php`,
-  * `core/ZipatoServices.php`
-  * `core/ZipatoBrowser.php`
+1. Fill it with your *My Zipato* sha1(password). See [PHP manual Sha1](http://php.net/manual/function.sha1.php)
+1. Go to the *index* page with your browser and play with the examples 
+1. See how is works in :
+       - `implementation/ExemplesServices.php`,
+       - `core/ZipatoServices.php`
+       - `core/ZipatoBrowser.php`
 1. Now it only remains to use
   * Use already implemented Services (in `./implementation`)
   * or create your own implementations by extending the class `ZipatoService.php`
