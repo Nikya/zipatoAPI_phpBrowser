@@ -11,13 +11,13 @@ require_once('core/ZipatoBrowser.php');
 abstract class ZipatoServices {
 
 	/** The ZipatoBrowser Use to send request */
-	private $zipatoBrowser;
+	protected $zipatoBrowser;
 
 	/**
 	* Services constructor
 	*
 	* @param $username Your email adresse to login
-	* @return $password Your password Shadded one time
+	* @param $password Your password Shadded one time
 	*/
 	public function __construct($username, $password) {
 		$this->zipatoBrowser =  new ZipatoBrowser($username, $password);

@@ -17,6 +17,7 @@
 	<li><a href="index.php?ex=list">List</a></li>
 	<li><a href="index.php?ex=read">Read</a></li>
 	<li><a href="index.php?ex=switch">Switch</a></li>
+	<li><a href="index.php?ex=meteo">Meteo</a></li>
 </ol>
 <hr/>
 
