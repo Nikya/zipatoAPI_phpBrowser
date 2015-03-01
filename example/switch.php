@@ -12,8 +12,6 @@
 <hr/>
 
 <?php
-	require_once('implementation/ExampleServices.php');
-
 	// If switch is asked
 	if (isset($_GET['switch']) and !empty($_GET['switch']) and isset($_GET['uuid']) and !empty($_GET['uuid'])) {
 		// Get forms params

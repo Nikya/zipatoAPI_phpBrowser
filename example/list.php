@@ -30,8 +30,6 @@
 <hr/>
 
 <?php
-	require_once('implementation/ExampleServices.php');
-
 	// If a listing action is made
 	if (isset($_GET['ListChoice']) and !empty($_GET['ListChoice']) ) {
 		// Get the list choice ID

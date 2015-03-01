@@ -8,7 +8,6 @@
 	echo "<pre>$configPrinted</pre>";
 
 	// Create a browser
-	require_once('core/ZipatoBrowser.php');
 	$zipatoBrowser = new ZipatoBrowser();
 
 	// Login to Zipato Api

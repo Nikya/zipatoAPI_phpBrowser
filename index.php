@@ -22,11 +22,12 @@
 <hr/>
 
 <?php
-	// Common \\
-
 	// Display errors
 	ini_set('display_errors',1);
 	error_reporting(E_ALL);
+
+	// Load classes
+	require_once('autoload.php');
 
 	// Load parameters : IP, login, passwords
 	$config = parse_ini_file('config.ini', true);

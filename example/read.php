@@ -12,8 +12,6 @@
 <hr/>
 
 <?php
-	require_once('implementation/ExampleServices.php');
-
 	// If read is asked
 	if (isset($_GET['read']) and !empty($_GET['read']) and isset($_GET['uuid']) and !empty($_GET['uuid'])  ) {
 		// Get forms params

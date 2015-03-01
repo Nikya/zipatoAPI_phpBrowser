@@ -1,5 +1,4 @@
 <?php
-require_once('core/ZipatoServices.php');
 
 /**
 * Examples using ZipatoServices

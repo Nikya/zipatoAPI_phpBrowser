@@ -1,5 +1,4 @@
 <?php
-require_once('core/ZipatoBrowser.php');
 
 /**
 * Zipato Services to provides services through the Zipato API
