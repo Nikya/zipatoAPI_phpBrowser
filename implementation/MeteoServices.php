@@ -16,15 +16,23 @@ class MeteoServices extends ZipatoServices {
 	const BASE_WEATHER_ICON_URL = 'https://my.zipato.com/zipato-web/images/app2/parts/weather/icons/';
 
 	/**
-	* Meteo Services constructor
+	* Registre the meteo UUID to use
 	*
-	* @param $username Your email adresse to login
-	* @param $password Your password Shadded one time
 	* @param $meteoUuid A meteo UUID (Use Zipato API explorer : Get /Meteo)
 	*/
-	public function __construct($username, $password, $meteoUuid) {
-		parent::__construct($username, $password);
+	public function setUuid($meteoUuid) {
 		$this->uuid = $meteoUuid;
+	}
+
+	/**
+	* List all configured Meteo
+	*
+	* @return Array of data
+	*/
+	public function listMeteo() {
+		$url = '/meteo';
+		$rData = $this->zipatoBrowser->get($url);
+		return $rData;
 	}
 
 	/**
@@ -33,6 +41,11 @@ class MeteoServices extends ZipatoServices {
 	* @return Array of data
 	*/
 	public function fullRead() {
+
+		if (!isset($this->uuid)) {
+			throw new Exception("Unset Meteo UUID");
+		}
+
 		$rData = array();
 		$allValue = array();
 
