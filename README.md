@@ -33,5 +33,4 @@ Clone the repo [zipatoAPI_phpBrowser](https://github.com/Nikya/zipatoAPI_phpBrow
 - Switch : Change a value to On/Off a light
 
 # Features to come
-- *Fibaro RGBW Controller* : Set a color or launch predefined programs (Fire, Storm, Rainbow, Aurora, Police)
-- Meteo : Read whether
+- Abandoned projet
