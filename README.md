@@ -2,6 +2,8 @@
 
 Version 2.0_1.0
 
+*Abandoned projet!*
+
 # What is it
 A PHP browser to use the *Zipato web API V2*.
 
